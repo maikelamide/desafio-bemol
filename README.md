@@ -1,8 +1,7 @@
 ## Desafio Bemol
-##### :point_right: [feature](https://maikelamide.github.io/desafio-bemol/)
+##### :point_right: [Feature do Desafio](https://maikelamide.github.io/desafio-bemol/)
 
 ### Instalação do projeto
-![telaLogin](https://user-images.githubusercontent.com/47642347/85060288-00bd9000-b173-11ea-9e2a-97a611c8e03e.gif)
 
 ### :pencil: Tecnologias
 
