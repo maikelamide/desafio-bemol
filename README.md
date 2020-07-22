@@ -1,5 +1,5 @@
 ## Desafio Bemol
-##### :point_right: [Feature do Desafio](https://maikelamide.github.io/desafio-bemol/)
+##### :point_right: [Feature do Desafio](https://maikelamide/desafio-bemol.github.io/)
 
 ### Instalação do projeto
 
