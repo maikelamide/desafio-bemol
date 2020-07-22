@@ -1,5 +1,19 @@
+<?php 
+	session_start();
+	
+	require_once 'request/connection.php';
+	require_once 'request/login.php';
+	
+	$error = array();
+
+	if(isset($_POST['entrar'])):
+		$email = mysqli_escape_string($connect, $_POST['email']);
+		$password = mysqli_escape_string($connect, $_POST['senha']);
+		$error = validate($error, $email, $password, $connect);
+	endif;
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
 	<title>Login</title>
 	<meta charset="UTF-8">
@@ -32,7 +46,21 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
 			<div class="wrap-login100 p-l-60 p-r-60 p-t-62 p-b-33">
-				<form class="login100-form validate-form flex-sb flex-w">
+				<div>
+					<?php 
+						if(!empty($error)):
+							foreach($error as $e):
+							echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+										<span style='color:red;'> <center>".$e."</center></span>
+										<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+											<span aria-hidden='true'>&times;</span>
+										</button>
+									</div>";
+							endforeach;	
+						endif;
+					?>
+				</div>
+				<form class="login100-form validate-form flex-sb flex-w" action="#" method="POST">
 					<span class="login100-form-title"><!--p-b-53-->
 						Preencha seus dados para acessar sua conta
 						<hr>
@@ -43,35 +71,30 @@
 						</span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Campo é obrigatório!">
-						<input class="input100" type="email" name="username" >
+						<input class="input100" type="email" name="email" >
 						<span class="focus-input100"></span>
 					</div>
-					
 					<div class="p-t-13 p-b-9">
 						<span class="txt1">
 							Senha
 						</span>
-
 						<a href="#" class="txt2 bo1 m-l-5">
 							Esqueceu?
 						</a>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Campo é obrigatório!">
-						<input class="input100" type="password" name="pass" >
+						<input class="input100" type="password" name="senha">
 						<span class="focus-input100"></span>
 					</div>
-
 					<div class="container-login100-form-btn m-t-17">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" type="submit" name="entrar">
 							Entrar
 						</button>
 					</div>
-
 					<div class="w-full text-center p-t-55">
 						<span class="txt2">
 							Ainda não tem cadastro?
 						</span>
-
 						<a href="./cadastro" class="txt2 bo1">
 							Cadastre-se agora!
 						</a>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-	<title>Cadastro</title>
+	<title>Cadastro | Conta</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -89,24 +89,7 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
 			<div class="wrap-login100 p-l-60 p-r-60 p-t-62 p-b-33">
-		<!--
-		 <form method="get" action=".">
-        <label>Cep:
-        <input name="cep" type="text" id="cep" value="" size="10" maxlength="9" /></label><br />
-        <label>Rua:
-        <input name="rua" type="text" id="rua" size="60" /></label><br />
-        <label>Bairro:
-        <input name="bairro" type="text" id="bairro" size="40" /></label><br />
-        <label>Cidade:
-        <input name="cidade" type="text" id="cidade" size="40" /></label><br />
-        <label>Estado:
-        <input name="uf" type="text" id="uf" size="2" /></label><br />
-        <label>IBGE:
-        <input name="ibge" type="text" id="ibge" size="8" /></label><br />
-      </form>-->
-        
-			
-				<form class="login100-form validate-form flex-sb flex-w">
+				<form class="login100-form validate-form flex-sb flex-w" action="./request/cadastrar-usuario.php" method="post" enctype="multipart/form-data" >
 					<span class="login100-form-title"><!--p-b-53-->
 						Vamos lá, criar seu cadastro! 
 						<hr>
@@ -138,7 +121,7 @@
 									</span>
 								</div>
 								<div class="wrap-input100 validate-input" data-validate = "Campo obrigatório!">
-									<input class="input100" type="text" name="username">
+									<input class="input100" type="text" name="nomeCompleto">
 									<span class="focus-input100"></span>
 								</div>
 								<div class="p-t-13 p-b-9">
@@ -147,7 +130,7 @@
 									</span>
 								</div>
 								<div class="wrap-input100 validate-input" data-validate = "Campo obrigatório!">
-									<input class="input100" type="number" name="cpf">
+									<input class="input100" type="text" name="cpf">
 									<span class="focus-input100"></span>
 								</div>					
 								<div class="p-t-13 p-b-9">
@@ -246,14 +229,14 @@
 								<div class="wrap-input100 validate-input" data-validate = "Campo obrigatório!">
 									<input class="input100" type="email" name="email" >
 									<span class="focus-input100"></span>
-								</div>
+								</div>							
 								<div class="p-t-13 p-b-9">
 									<span class="txt1">
 									Senha
 									</span>
 								</div>
 								<div class="wrap-input100 validate-input" data-validate = "Campo obrigatório!">
-									<input class="input100" type="password" name="senha">
+									<input class="input100" type="password" name="senha" id="senha">
 									<span class="focus-input100"></span>
 								</div>					
 								<div class="p-t-13 p-b-9">
@@ -262,19 +245,18 @@
 									</span>
 								</div>
 								<div class="wrap-input100 validate-input" data-validate = "Campo obrigatório!">
-									<input class="input100" type="password" name="confirmar-senha">
+									<input class="input100" type="password" id="confirmarSenha">
 									<span class="focus-input100"></span>
 								</div>
+								<span id="msg"></span>
 								<div class="container-login100-form-btn m-t-17">
-									<button class="login100-form-btn" style="background-color: #6075b7">
+									<button class="login100-form-btn" style="background-color: #6075b7" type="submit">
 										Concluir
 									</button>
 								</div>
 							</div>
 						</div>
 					</div>
-					
-
 					<div class="w-full text-center p-t-55">
 						<span class="txt2">
 							Já tem cadastro?
@@ -288,10 +270,14 @@
 			</div>
 		</div>
 	</div>
-	
-
-	<div id="dropDownSelect1"></div>
-	
+	<div id="dropDownSelect1"></div>	
+	<script>
+		$('form').on('submit', function () {
+			if ($('#senha').val() != $('#confirmarSenha').val()) {
+				$("#msg").html('<div class="alert alert-warning" role="alert">Ops, as senhas não coincidem! <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'); 
+			}
+		});
+	</script>
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -308,6 +294,5 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
-
 </body>
 </html>
