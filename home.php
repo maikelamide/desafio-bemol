@@ -47,11 +47,15 @@
 						Seja bem-vindo <strong><?php echo $result ['nomeCompleto']; ?></strong>
 						<hr>
 					</span>
+					<span class="login100-form-title"><!--p-b-53-->
+						Desafio Bemol
+					</span>
+					<!--
 					<div class="container-login100-form-btn m-t-17">
 						<a class="login100-form-btn" type="button" href="./">
 							ver usuários
 						</a>
-					</div>
+					</div>-->
 					<div class="container-login100-form-btn m-t-17">
 						<a class="login100-form-btn" type="button" href="./request/logout.php">
 							sair

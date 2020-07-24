@@ -26,64 +26,6 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
-<!-- Adicionando JQuery -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-	<!-- Jquery/Json CEP -->
-    <script>
-        $(document).ready(function() {
-            function limpa_formulário_cep() {
-                // Limpa valores do formulário de cep.
-                $("#rua").val("");
-                $("#bairro").val("");
-                $("#cidade").val("");
-                $("#uf").val("");
-            }
-            //Quando o campo cep perde o foco.
-            $("#cep").blur(function() {
-                //Nova variável "cep" somente com dígitos.
-                var cep = $(this).val().replace(/\D/g, '');
-                //Verifica se campo cep possui valor informado.
-                if (cep != "") {
-                    //Expressão regular para validar o CEP.
-                    var validacep = /^[0-9]{8}$/;
-                    //Valida o formato do CEP.
-                    if(validacep.test(cep)) {
-                        //Preenche os campos com "..." enquanto consulta webservice.
-                        $("#rua").val("...");
-                        $("#bairro").val("...");
-                        $("#cidade").val("...");
-                        $("#uf").val("...");
-                        //Consulta o webservice viacep.com.br/
-                        $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
-                            if (!("erro" in dados)) {
-                                //Atualiza os campos com os valores da consulta.
-                                $("#rua").val(dados.logradouro);
-                                $("#bairro").val(dados.bairro);
-                                $("#cidade").val(dados.localidade);
-                                $("#uf").val(dados.uf);
-                                $("#ibge").val(dados.ibge);
-                            } //end if.
-                            else {
-                                //CEP pesquisado não foi encontrado.
-                                limpa_formulário_cep();
-                                alert("CEP não encontrado.");
-                            }
-                        });
-                    } //end if.
-                    else {
-                        //cep é inválido.
-                        limpa_formulário_cep();
-                        alert("Formato de CEP inválido.");
-                    }
-                } //end if.
-                else {
-                    //cep sem valor, limpa formulário.
-                    limpa_formulário_cep();
-                }
-            });
-        });
-
-    </script>
 </head>
 <body>
 	<div class="limiter">
@@ -98,19 +40,19 @@
 						Conclua os passos: 
 					</span>
 					<div class="row">			
-						<ul class="nav nav-pills mb-3 margin-auto" id="pills-tab" role="tablist">
-							<li class="nav-item">
-								<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#passo-um" role="tab" aria-controls="pills-home" aria-selected="true">Passo 1</a>
+						<ul class="nav nav-pills mb-3 margin-auto" id="myTab" role="tablist">
+							<li class="nav-item"><!-- nav-item -->
+								<a class="nav-link active" href="#passo-um" data-toggle="tab" role="tab" aria-controls="passo-um" aria-selected="true">Passo 1</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#passo-dois" role="tab" aria-controls="pills-profile" aria-selected="false">Passo 2</a>
+								<a class="nav-link" href="#passo-dois" data-toggle="tab" role="tab" aria-controls="passo-dois" aria-selected="false">Passo 2</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#passo-tres" role="tab" aria-controls="pills-contact" aria-selected="false">Passo 3</a>
+								<a class="nav-link" href="#passo-tres" data-toggle="tab" role="tab" aria-controls="passo-tres" aria-selected="false">Passo 3</a>
 							</li>
 						</ul>
-						<div class="tab-content p-l-20 p-r-20" id="pills-tabContent">
-							<div class="tab-pane fade show active" id="passo-um" role="tabpanel" aria-labelledby="pills-home-tab">								
+						<div class="tab-content p-l-20 p-r-20" id="content">
+							<div class="tab-pane fade show active" id="passo-um">
 								<div class="p-t-31 p-b-9">
 									<span class="txt1">
 										<strong>1 - Dados Pessoais</strong>
@@ -130,7 +72,7 @@
 									</span>
 								</div>
 								<div class="wrap-input100 validate-input" data-validate = "Campo obrigatório!">
-									<input class="input100" type="text" name="cpf">
+									<input class="input100" type="text" name="cpf" onkeyup="mascara('###.###.###-##',this,event,true)" maxlength="14">
 									<span class="focus-input100"></span>
 								</div>					
 								<div class="p-t-13 p-b-9">
@@ -143,12 +85,12 @@
 									<span class="focus-input100"></span>
 								</div>
 								<div class="container-login100-form-btn m-t-17">
-									<button class="login100-form-btn" style="background-color: #6075b7">
-										Próximo
-									</button>
+									<a class="login100-form-btn next" style="background-color: #6075b7" href="#passo-dois">
+										Próximo <i class="fa fa-arrow-right"></i>
+									</a>
 								</div>
 							</div>
-							<div class="tab-pane fade" id="passo-dois" role="tabpanel" aria-labelledby="pills-profile-tab">
+							<div class="tab-pane" id="passo-dois"><!-- role="tabpanel" aria-labelledby="pills-profile-tab" -->
 								<div class="p-t-31 p-b-9">
 									<span class="txt1">
 										<strong>2 - Dados de Endereço</strong>
@@ -161,6 +103,7 @@
 										Não sabe seu CEP?
 									</a>
 								</div>
+								<span id="msg2"></span>
 								<div class="wrap-input100 validate-input" data-validate = "Campo obrigatório!">
 									<input class="input100" type="text" name="cep" id="cep" value="" size="10" maxlength="9">
 									<span class="focus-input100"></span>
@@ -210,13 +153,20 @@
 									<input class="input100" type="text" name="bairro" id="bairro" size="40">
 									<span class="focus-input100"></span>
 								</div>
-								<div class="container-login100-form-btn m-t-17">
-									<button class="login100-form-btn" style="background-color: #6075b7">
-										Próximo
-									</button>
+								<div class="row p-l-30 p-r-30">
+									<div class="container-login40-form-btn m-t-17 m-r-50">
+										<a class="login100-form-btn prev" style="background-color: #6075b7;" href="#passo-um">
+											<i class="fa fa-arrow-left"></i> Anterior
+										</a>
+									</div>
+									<div class="container-login40-form-btn m-t-17">
+										<a class="login100-form-btn next" style="background-color: #6075b7" href="#passo-tres">
+											Próximo <i class="fa fa-arrow-right"></i>
+										</a>
+									</div>
 								</div>
 							</div>
-							<div class="tab-pane fade" id="passo-tres" role="tabpanel" aria-labelledby="pills-contact-tab">
+							<div class="tab-pane" id="passo-tres"><!--role="tabpanel" aria-labelledby="pills-contact-tab" -->
 								<div class="p-t-31 p-b-9">
 									<span class="txt1">
 										<strong>3 - Dados de Acesso</strong>
@@ -229,16 +179,19 @@
 								<div class="wrap-input100 validate-input" data-validate = "Campo obrigatório!">
 									<input class="input100" type="email" name="email" >
 									<span class="focus-input100"></span>
-								</div>							
+								</div>			
+								<div type="hidden" id="impSenha"></div> 
+								<div type="hidden" id="impForcaSenha"></div>
 								<div class="p-t-13 p-b-9">
 									<span class="txt1">
-									Senha
+									Senha 
 									</span>
+									<div id="msg3"></div>
 								</div>
 								<div class="wrap-input100 validate-input" data-validate = "Campo obrigatório!">
-									<input class="input100" type="password" name="senha" id="senha">
+									<input class="input100" type="password" name="senha" id="senha" onkeyup="validarSenhaForca()">
 									<span class="focus-input100"></span>
-								</div>					
+								</div>			
 								<div class="p-t-13 p-b-9">
 									<span class="txt1">
 									Repita a Senha
@@ -249,19 +202,25 @@
 									<span class="focus-input100"></span>
 								</div>
 								<span id="msg"></span>
-								<div class="container-login100-form-btn m-t-17">
-									<button class="login100-form-btn" style="background-color: #6075b7" type="submit">
-										Concluir
-									</button>
+								<div class="row p-l-30 p-r-30">
+									<div class="container-login40-form-btn m-t-17 m-r-50">
+										<a class="login100-form-btn" style="background-color: #6075b7" href="#passo-dois">
+											<i class="fa fa-arrow-left"></i> Anterior
+										</a>
+									</div>
+									<div class="container-login40-form-btn m-t-17">
+										<button class="login100-form-btn" style="background-color: #6075b7" type="submit">
+											Concluir <i class="fa fa-check"></i>
+										</button>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="w-full text-center p-t-55">
 						<span class="txt2">
-							Já tem cadastro?
+							Já possui cadastro?
 						</span>
-
 						<a href="./" class="txt2 bo1">
 							Acessar conta!
 						</a>
@@ -271,15 +230,9 @@
 		</div>
 	</div>
 	<div id="dropDownSelect1"></div>	
-	<script>
-		$('form').on('submit', function () {
-			if ($('#senha').val() != $('#confirmarSenha').val()) {
-				$("#msg").html('<div class="alert alert-warning" role="alert">Ops, as senhas não coincidem! <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'); 
-			}
-		});
-	</script>
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>-->
 <!--===============================================================================================-->
 	<script src="vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
@@ -294,5 +247,18 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+	<script src="js/proximo_anterir.js"></script>
+	<!-- Jquery/Json CEP -->
+	<script src="js/buscar_cep.js"></script>
+	<script>
+		$('form').on('submit', function () {
+			if ($('#senha').val() != $('#confirmarSenha').val()) {
+				$("#msg").html('<div class="alert alert-warning" role="alert">Ops, as senhas não coincidem! <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+				return false;
+			}
+		});
+	</script>
+	<script src="./js/verificar_senha.js"></script>
+	<script src="./js/mascara.js"></script>
 </body>
 </html>

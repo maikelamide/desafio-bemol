@@ -385,6 +385,17 @@ iframe {
   flex-wrap: wrap;
 }
 
+.container-login40-form-btn {
+  width: 40%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
 .login100-form-btn {
   display: -webkit-box;
   display: -webkit-flex;

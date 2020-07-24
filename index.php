@@ -15,7 +15,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<title>Login</title>
+	<title>Login | Conta</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -96,17 +96,14 @@
 							Ainda não tem cadastro?
 						</span>
 						<a href="./cadastro" class="txt2 bo1">
-							Cadastre-se agora!
+							Criar conta!
 						</a>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-	
-
 	<div id="dropDownSelect1"></div>
-	
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
