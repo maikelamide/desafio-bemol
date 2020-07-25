@@ -36,29 +36,22 @@
 						Vamos lá, criar seu cadastro! 
 						<hr>
 					</span>
-					<span class="login100-form-title"><!--p-b-53-->
-						Conclua os passos: 
-					</span>
 					<div class="row">			
 						<ul class="nav nav-pills mb-3 margin-auto" id="myTab" role="tablist">
 							<li class="nav-item"><!-- nav-item -->
-								<a class="nav-link active" href="#passo-um" data-toggle="tab" role="tab" aria-controls="passo-um" aria-selected="true">Passo 1</a>
+								<a class="nav-link active text-center" href="#passo-um" data-toggle="tab" role="tab" aria-controls="passo-um" aria-selected="true">Dados <br> Pessoais</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#passo-dois" data-toggle="tab" role="tab" aria-controls="passo-dois" aria-selected="false">Passo 2</a>
+								<a class="nav-link  text-center" href="#passo-dois" data-toggle="tab" role="tab" aria-controls="passo-dois" aria-selected="false">Dados <br> Endereço</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#passo-tres" data-toggle="tab" role="tab" aria-controls="passo-tres" aria-selected="false">Passo 3</a>
+								<a class="nav-link  text-center" href="#passo-tres" data-toggle="tab" role="tab" aria-controls="passo-tres" aria-selected="false">Dados <br> Acesso</a>
 							</li>
 						</ul>
 						<div class="tab-content p-l-20 p-r-20" id="content">
 							<div class="tab-pane fade show active" id="passo-um">
 								<div class="p-t-31 p-b-9">
 									<span class="txt1">
-										<strong>1 - Dados Pessoais</strong>
-									</span>
-									<span class="txt1">
-										<hr>
 										Nome Completo
 									</span>
 								</div>
@@ -93,10 +86,6 @@
 							<div class="tab-pane" id="passo-dois"><!-- role="tabpanel" aria-labelledby="pills-profile-tab" -->
 								<div class="p-t-31 p-b-9">
 									<span class="txt1">
-										<strong>2 - Dados de Endereço</strong>
-									</span>
-									<span class="txt1">
-										<hr>
 										CEP
 									</span>
 									<a href="http://www.buscacep.correios.com.br/sistemas/buscacep/default.cfm?Metodo=menuLogradouro" target="_blank" class="txt2 bo1 m-l-5">
@@ -169,10 +158,6 @@
 							<div class="tab-pane" id="passo-tres"><!--role="tabpanel" aria-labelledby="pills-contact-tab" -->
 								<div class="p-t-31 p-b-9">
 									<span class="txt1">
-										<strong>3 - Dados de Acesso</strong>
-									</span>
-									<span class="txt1">
-										<hr>
 										E-mail
 									</span>
 								</div>

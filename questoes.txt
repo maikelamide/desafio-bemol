@@ -1,0 +1,27 @@
+maikelamide@gmail.com
+
+---------Questões----------
+1. A solução deve ser disponibilizada em Cloud ou On-premise?
+Pra responder essa questão tem que ser levado em consideração alguns pontos como infraestrutura, operacional e financeiro.
+A princípio o Cloud parece ser uma proposta mais viável principalmente quando não se tem uma infraestrutua
+própria para manter, por exemplo um data-center. Cloud oferece toda uma estrutura de acordo com a necessidade do negócio, e consequentemente
+o custo é melhor do que investir em equipamento, profissionais, energia, etc.
+
+2. Considerando a participação de 4 pessoas técnicas para o desenvolvimento dessa 
+solução, responda qual ferramenta acreditas ser apropriada para o controle de
+tarefas da equipe, a ferramenta é ágil?
+Sim, com certeza seria metodologia ágil! Nos últimos anos essa metodologia tem mostrando suas grandes vantagens para uma equipe.
+Existem diversos exemplos, entre eles usaria o Scrum, é um metodo bem sistematico, prático, basicamente pegariamos o problema
+dividiriamos em atividades menores, e fariamos entregas para atingir o objetivo, nesse caso desenvolver a solução. O legal dessa
+metodologia que trabalha ativamente com todas as pessoas envolvidas, ninguém fica para trás.
+
+3. Você se sente capaz de liderar esta equipe? Por quê?
+Bom, já tive a experiência de líderar diversos projetos acadêmicos, quando estive na faculdade. 
+Claro que seria uma realidade totalmente diferente mas me sinto desafiado se fosse convidado a líderar.
+
+4. Se pudesse sugerir uma melhoria, mudança ou oportunidade. O que seria?
+--
+
+5. Acha válido esse desafio para o processo que está participando?
+Sim, super válido. Apesar de parecer um desafio fácil de desenvolver, é um desafio que a pessoa tem que colocar em prática
+a criatividade, olhar técnico, conhecimento na área e demais skills.
