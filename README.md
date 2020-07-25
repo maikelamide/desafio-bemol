@@ -3,6 +3,7 @@
 
 ### Instalação do projeto
 Para rodar o projeto basta ter um servidor Apache, copiar a pasta para dentro do serviço e rodar.
+Obs: o banco está rodando em um servidor online.
 
 ### :pencil: Tecnologias
 
