@@ -1,7 +1,8 @@
-## Desafio Bemol
-##### :point_right: [Feature do Desafio](https://maikelamide/desafio-bemol.github.io/)
+##Projeto: Desafio Bemol Cadastro Cliente
+##### :point_right: [Feature do Desafio Online](http://conhecendomaues.com.br/desafio-bemol/)
 
 ### Instalação do projeto
+Para rodar o projeto basta ter um servidor Apache, copiar a pasta para dentro do serviço e rodar.
 
 ### :pencil: Tecnologias
 
